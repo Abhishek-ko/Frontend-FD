@@ -1,0 +1,274 @@
+/* ----------------- VARIABLES ----------------- */
+:root {
+  --bg: #0f0f17;            /* deep background */
+  --bg-light: #1c1c28;
+  --text: #f4f4f8;          /* light text */
+  --muted: #9ca3af;
+  --primary: #ff4d6d;       /* hot pink */
+  --secondary: #3b82f6;     /* bright blue */
+  --accent: #22d3ee;        /* cyan */
+  --card: #151520;
+  --radius: 18px;
+  --transition: all 0.35s ease;
+  --shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ----------------- GLOBAL ----------------- */
+body {
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  margin: 0 0 0.6em;
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--muted);
+}
+
+/* smooth transitions globally */
+a, button {
+  transition: var(--transition);
+}
+
+/* ----------------- HEADER ----------------- */
+#about-header {
+  position: relative;
+  padding: 120px 20px 140px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  overflow: hidden;
+}
+
+#about-header h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  animation: slideDown 1s ease forwards;
+}
+
+#about-header p {
+  max-width: 700px;
+  margin: 1rem auto 0;
+  font-size: 1.2rem;
+  animation: fadeUp 1.3s ease forwards;
+}
+
+#about-header::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 120px;
+  background: var(--bg);
+  border-radius: 50% 50% 0 0;
+}
+
+/* ----------------- CONTAINER ----------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ----------------- CARDS ----------------- */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 40px 30px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
+  opacity: 0.05;
+  pointer-events: none;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(59,130,246,0.4);
+}
+
+/* ----------------- SECTION ----------------- */
+.section {
+  margin: 60px 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--secondary);
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50%;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+/* ----------------- LINKS ----------------- */
+a[target="_blank"] {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+}
+a[target="_blank"]:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: var(--transition);
+}
+a[target="_blank"]:hover:after {
+  width: 100%;
+}
+
+/* ----------------- VALUES ----------------- */
+ul.values {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+}
+ul.values li {
+  margin: 0.5rem 0;
+  position: relative;
+  padding-left: 0.5rem;
+}
+ul.values li::marker {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+/* ----------------- TEAM ----------------- */
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.member {
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  text-align: center;
+  padding: 30px 20px;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.05);
+  transition: var(--transition);
+  position: relative;
+}
+.member:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: linear-gradient(160deg, var(--bg-light), rgba(59,130,246,0.15));
+}
+.member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 14px;
+  border: 3px solid var(--accent);
+  transition: var(--transition);
+}
+.member:hover img {
+  transform: rotate(6deg) scale(1.1);
+}
+.member h3 {
+  margin: 0.3em 0;
+  color: var(--primary);
+}
+.member small {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ----------------- QUOTE ----------------- */
+blockquote {
+  background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(255,77,109,0.15));
+  border-left: 6px solid var(--primary);
+  padding: 24px;
+  border-radius: var(--radius);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #e0e7ff;
+  position: relative;
+}
+blockquote::before {
+  content: "❝";
+  font-size: 3rem;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  color: var(--primary);
+  opacity: 0.4;
+}
+
+/* ----------------- CTA ----------------- */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(34,211,238,0.15), rgba(59,130,246,0.15));
+  box-shadow: var(--shadow);
+}
+.cta .btn {
+  padding: 14px 26px;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.cta .btn:hover {
+  transform: scale(1.08);
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+/* ----------------- FOOTER ----------------- */
+footer {
+  padding: 25px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  background: var(--bg-light);
+}
+
+/* ----------------- ANIMATIONS ----------------- */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}

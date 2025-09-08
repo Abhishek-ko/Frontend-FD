@@ -1,19 +1,18 @@
-/* ----------------- VARIABLES ----------------- */
+
 :root {
-  --bg: #0f0f17;            /* deep background */
+  --bg: #0f0f17;            
   --bg-light: #1c1c28;
-  --text: #f4f4f8;          /* light text */
+  --text: #f4f4f8;          
   --muted: #9ca3af;
-  --primary: #ff4d6d;       /* hot pink */
-  --secondary: #3b82f6;     /* bright blue */
-  --accent: #22d3ee;        /* cyan */
+  --primary: #ff4d6d;      
+  --secondary: #3b82f6;     
+  --accent: #22d3ee;        
   --card: #151520;
   --radius: 18px;
   --transition: all 0.35s ease;
   --shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* ----------------- GLOBAL ----------------- */
 body {
   margin: 0;
   font-family: "Rubik", sans-serif;
@@ -34,12 +33,10 @@ p {
   color: var(--muted);
 }
 
-/* smooth transitions globally */
 a, button {
   transition: var(--transition);
 }
 
-/* ----------------- HEADER ----------------- */
 #about-header {
   position: relative;
   padding: 120px 20px 140px;
@@ -74,14 +71,12 @@ a, button {
   border-radius: 50% 50% 0 0;
 }
 
-/* ----------------- CONTAINER ----------------- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* ----------------- CARDS ----------------- */
 .card {
   background: var(--card);
   border-radius: var(--radius);
@@ -104,7 +99,6 @@ a, button {
   box-shadow: 0 20px 50px rgba(59,130,246,0.4);
 }
 
-/* ----------------- SECTION ----------------- */
 .section {
   margin: 60px 0;
 }
@@ -127,7 +121,6 @@ a, button {
   background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 
-/* ----------------- LINKS ----------------- */
 a[target="_blank"] {
   color: var(--primary);
   font-weight: 600;
@@ -148,7 +141,6 @@ a[target="_blank"]:hover:after {
   width: 100%;
 }
 
-/* ----------------- VALUES ----------------- */
 ul.values {
   margin: 1rem 0 0;
   padding-left: 1.2rem;
@@ -163,7 +155,6 @@ ul.values li::marker {
   font-size: 1.2rem;
 }
 
-/* ----------------- TEAM ----------------- */
 .team {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -204,7 +195,6 @@ ul.values li::marker {
   font-size: 0.9rem;
 }
 
-/* ----------------- QUOTE ----------------- */
 blockquote {
   background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(255,77,109,0.15));
   border-left: 6px solid var(--primary);
@@ -225,7 +215,6 @@ blockquote::before {
   opacity: 0.4;
 }
 
-/* ----------------- CTA ----------------- */
 .cta {
   display: flex;
   align-items: center;
@@ -253,7 +242,6 @@ blockquote::before {
   background: linear-gradient(90deg, var(--secondary), var(--accent));
 }
 
-/* ----------------- FOOTER ----------------- */
 footer {
   padding: 25px;
   text-align: center;
@@ -263,7 +251,6 @@ footer {
   background: var(--bg-light);
 }
 
-/* ----------------- ANIMATIONS ----------------- */
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-40px); }
   to { opacity: 1; transform: translateY(0); }

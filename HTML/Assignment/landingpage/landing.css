@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,13 +12,11 @@ body {
   background: #f5f7fb;
 }
 
-/* Container */
 .container {
   width: 90%;
   margin: auto;
 }
 
-/* Header */
 header {
   position: fixed;
   width: 100%;
@@ -60,7 +58,6 @@ nav ul li a:hover {
   color: #0077ff;
 }
 
-/* Hamburger */
 .hamburger {
   display: none;
   font-size: 1.5rem;
@@ -71,7 +68,6 @@ nav ul li a:hover {
   display: block;
 }
 
-/* Hero */
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
@@ -110,7 +106,6 @@ nav ul li a:hover {
   transform: scale(1.05);
 }
 
-/* Section */
 .section {
   padding: 80px 20px;
   text-align: center;
@@ -134,7 +129,6 @@ nav ul li a:hover {
   border-radius: 2px;
 }
 
-/* Services */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -160,7 +154,6 @@ nav ul li a:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* About */
 .about-container {
   display: flex;
   flex-wrap: wrap;
@@ -179,7 +172,6 @@ nav ul li a:hover {
   text-align: left;
 }
 
-/* Testimonials */
 
 body {
   font-family: Arial, sans-serif;
@@ -188,7 +180,6 @@ body {
   color: #333;
 }
 
-/* Testimonials Section */
 .testimonials {
   padding: 60px 20px;
   text-align: center;
@@ -200,14 +191,12 @@ body {
   color: #0077ff;
 }
 
-/* Grid Layout for Testimonial Cards */
 .testimonial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
 }
 
-/* Individual Testimonial Card */
 .testimonial {
   position: relative;
   background: #fff;
@@ -223,7 +212,6 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Profile Image */
 .testimonial-img {
   width: 80px;
   height: 80px;
@@ -233,7 +221,6 @@ body {
   border: 3px solid #0077ff;
 }
 
-/* Testimonial Text */
 .testimonial p {
   font-style: italic;
   margin-bottom: 15px;
@@ -245,7 +232,6 @@ body {
   color: #0077ff;
 }
 
-/* ====== TAX / ₹ Animation ====== */
 .animation {
   position: absolute;
   pointer-events: none;
@@ -258,15 +244,12 @@ body {
   color: #0077ff;
   animation: rain 4s linear infinite;
 }
-
-/* Individual positions & animation delays */
 .animation.tax span:nth-child(1) { left: 20%; animation-delay: 0s; }
 .animation.tax span:nth-child(2) { left: 40%; animation-delay: 1s; }
 .animation.tax span:nth-child(3) { left: 60%; animation-delay: 2s; }
 .animation.tax span:nth-child(4) { left: 30%; animation-delay: 1.5s; font-size: 1rem; }
 .animation.tax span:nth-child(5) { left: 70%; animation-delay: 2.5s; font-size: 1rem; }
 
-/* Keyframes for raining effect */
 @keyframes rain {
   0% { top: -40px; opacity: 0; }
   20% { opacity: 1; }
@@ -274,7 +257,6 @@ body {
 }
 
 
-/* Contact */
 .contact-form {
   max-width: 600px;
   margin: auto;
@@ -304,7 +286,6 @@ body {
   background: #0056b3;
 }
 
-/* Footer */
 footer {
   background: #111;
   color: #fff;
@@ -323,7 +304,6 @@ footer .socials a:hover {
   color: #0077ff;
 }
 
-/* Responsive */
 @media(max-width: 768px) {
   nav ul {
     display: none;

@@ -178,18 +178,16 @@ Objective: Learn timed DOM updates and event-driven manipulation.-->
     }
 
     function startCarousel() {
-      interval = setInterval(nextImg, 3000); // auto-slide every 3 sec
+      interval = setInterval(nextImg, 3000); 
     }
 
     function stopCarousel() {
       clearInterval(interval);
     }
 
-    // Bonus: pause on hover
     carousel.addEventListener("mouseover", stopCarousel);
     carousel.addEventListener("mouseout", startCarousel);
 
-    // Initial start
     startCarousel();
   </script>
 </body>
@@ -377,5 +375,3 @@ Objective: Combine DOM manipulation with array iteration. -->
 </body>
 </html>
 
-
-<!--  -->

@@ -1,0 +1,381 @@
+<!-- Task 1: Dynamic To-Do List
+Objective: Understand element creation, event handling, and DOM updates. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple To‑Do List</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    li { margin: 6px 0; }
+    button { margin-left: 6px; }
+  </style>
+</head>
+<body>
+  <h2>To‑Do List</h2>
+
+  <input id="taskInput" type="text" placeholder="Enter task" />
+  <button onclick="addTask()">Add Task</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    render();
+
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      if (!input.value.trim()) return;
+      tasks.push(input.value.trim());
+      input.value = "";
+      save(); render();
+    }
+
+    function deleteTask(i) {
+      tasks.splice(i, 1);
+      save(); render();
+    }
+
+    function editTask(i) {
+      const newVal = prompt("Edit task", tasks[i]);
+      if (newVal !== null && newVal.trim()) {
+        tasks[i] = newVal.trim();
+        save(); render();
+      }
+    }
+
+    function render() {
+      const ul = document.getElementById("taskList");
+      ul.innerHTML = "";
+      tasks.forEach((t, i) => {
+        ul.innerHTML += `<li>${t}
+          <button onclick="editTask(${i})">Edit</button>
+          <button onclick="deleteTask(${i})">Delete</button>
+        </li>`;
+      });
+    }
+
+    function save() {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- Task 2: Live Character Counter
+Objective: Practice real-time DOM updates.-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Character Counter</title>
+  <style>
+    body{font-family:Arial;padding:18px;max-width:640px}
+    textarea{width:100%;height:120px;padding:8px;font-size:14px}
+    .info{margin-top:8px;font-weight:600}
+    .green{color:green}
+    .orange{color:orange}
+    .red{color:red}
+  </style>
+</head>
+<body>
+  <h3>Live Character Counter</h3>
+  <textarea id="ta" maxlength="100" placeholder="Type here..."></textarea>
+  <div id="counter" class="info">Characters left: 100</div>
+
+  <script>
+    const LIMIT = 100;
+    const ta = document.getElementById('ta');
+    const counter = document.getElementById('counter');
+
+    function update(){
+      const left = LIMIT - ta.value.length;
+      counter.textContent = 'Characters left: ' + left;
+
+      counter.className = 'info';
+      if(left <= 10) counter.classList.add('red');
+      else if(left <= 30) counter.classList.add('orange');
+      else counter.classList.add('green');
+    }
+
+    ta.addEventListener('input', () => {
+      if(ta.value.length > LIMIT) ta.value = ta.value.slice(0, LIMIT);
+      update();
+    });
+
+    update();
+  </script>
+</body>
+</html>
+
+
+<!-- Task 3: Image Carousel
+Objective: Learn timed DOM updates and event-driven manipulation.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Image Carousel</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 20px; }
+    #carousel {
+      width: 400px;
+      height: 250px;
+      margin: auto;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    #carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    button { margin: 10px; padding: 8px 12px; }
+  </style>
+</head>
+<body>
+  <h2>Image Carousel</h2>
+
+  <div id="carousel">
+    <img id="slide" src="https://picsum.photos/id/101/400/250" />
+  </div>
+
+  <div>
+    <button onclick="prevImg()">Previous</button>
+    <button onclick="nextImg()">Next</button>
+  </div>
+
+  <script>
+    const images = [
+      "https://picsum.photos/id/101/400/250",
+      "https://picsum.photos/id/102/400/250",
+      "https://images.radiocity.in/images/uploads/web-stories/uejifc_ws.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR2MWx1VB-mPa7V1ONBiXFuUfLNBQxjzvVRA&s",
+      "https://i.ytimg.com/vi/Xke5Mf-OxuM/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH0CYAC0AWKAgwIABABGH8gPygyMA8=&rs=AOn4CLBzStn0KGfeQ8RvLWcVOtw7U0gvwQ"
+    ];
+
+    let index = 0;
+    let interval;
+    const slide = document.getElementById("slide");
+    const carousel = document.getElementById("carousel");
+
+    function showImg() {
+      slide.src = images[index];
+    }
+
+    function nextImg() {
+      index = (index + 1) % images.length;
+      showImg();
+    }
+
+    function prevImg() {
+      index = (index - 1 + images.length) % images.length;
+      showImg();
+    }
+
+    function startCarousel() {
+      interval = setInterval(nextImg, 3000); // auto-slide every 3 sec
+    }
+
+    function stopCarousel() {
+      clearInterval(interval);
+    }
+
+    // Bonus: pause on hover
+    carousel.addEventListener("mouseover", stopCarousel);
+    carousel.addEventListener("mouseout", startCarousel);
+
+    // Initial start
+    startCarousel();
+  </script>
+</body>
+</html>
+
+<!-- Task 4: Form Validation App
+Objective: Implement DOM-based validation with events. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation App</title>
+  <style>
+    body { font-family: Arial; max-width: 500px; margin: 30px auto; }
+    .field { margin-bottom: 15px; }
+    input { width: 100%; padding: 8px; font-size: 14px; border: 2px solid #ccc; border-radius: 5px; }
+    .error { color: red; font-size: 13px; margin-top: 3px; }
+    .valid { border-color: green; }
+    .invalid { border-color: red; }
+    button { padding: 10px 15px; }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+
+  <form id="regForm" onsubmit="validate(event)">
+
+    <div class="field">
+      <label>Name:</label>
+      <input type="text" id="name">
+      <div class="error" id="nameError"></div>
+    </div>
+
+    <div class="field">
+      <label>Email:</label>
+      <input type="text" id="email">
+      <div class="error" id="emailError"></div>
+    </div>
+
+    <div class="field">
+      <label>Password:</label>
+      <input type="password" id="password">
+      <div class="error" id="passError"></div>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    function validate(e) {
+      e.preventDefault();
+      let valid = true;
+
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const pass = document.getElementById('password');
+
+      const nameErr = document.getElementById('nameError');
+      const emailErr = document.getElementById('emailError');
+      const passErr = document.getElementById('passError');
+
+      nameErr.textContent = emailErr.textContent = passErr.textContent = "";
+      name.classList.remove('valid','invalid');
+      email.classList.remove('valid','invalid');
+      pass.classList.remove('valid','invalid');
+
+      if(name.value.trim() === ""){
+        nameErr.textContent = "Name is required";
+        name.classList.add('invalid');
+        valid = false;
+      } else {
+        name.classList.add('valid');
+      }
+
+      if(email.value.trim() === ""){
+        emailErr.textContent = "Email is required";
+        email.classList.add('invalid');
+        valid = false;
+      } else if(!email.value.includes('@')){
+        emailErr.textContent = "Invalid email";
+        email.classList.add('invalid');
+        valid = false;
+      } else {
+        email.classList.add('valid');
+      }
+
+      if(pass.value.trim() === ""){
+        passErr.textContent = "Password is required";
+        pass.classList.add('invalid');
+        valid = false;
+      } else if(pass.value.length < 8){
+        passErr.textContent = "Password must be at least 8 characters";
+        pass.classList.add('invalid');
+        valid = false;
+      } else {
+        pass.classList.add('valid');
+      }
+
+      if(valid){
+        alert('Form submitted successfully!');
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- Task 5: Interactive Product Filter
+Objective: Combine DOM manipulation with array iteration. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Product Filter</title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 30px auto; }
+    button { margin: 5px; padding: 8px 12px; }
+    #products { margin-top: 20px; }
+    .item { padding: 6px 0; border-bottom: 1px solid #ddd; }
+    #search { width: 100%; padding: 8px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Product Filter</h2>
+
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('electronics')">Electronics</button>
+  <button onclick="filterProducts('clothing')">Clothing</button>
+
+  <input id="search" type="text" placeholder="Search products..." oninput="filterProducts(currentFilter)">
+
+  <div id="products"></div>
+
+  <script>
+    const products = [
+      { name: "Laptop", category: "electronics" },
+      { name: "Mobile Phone", category: "electronics" },
+      { name: "Headphones", category: "electronics" },
+      { name: "Smartwatch", category: "electronics" },
+      { name: "Bluetooth Speaker", category: "electronics" },
+      { name: "Tablet", category: "electronics" },
+      { name: "Gaming Mouse", category: "electronics" },
+
+      { name: "T-Shirt", category: "clothing" },
+      { name: "Jeans", category: "clothing" },
+      { name: "Jacket", category: "clothing" },
+      { name: "Shirt", category: "clothing" },
+      { name: "Hoodie", category: "clothing" },
+      { name: "Shorts", category: "clothing" },
+      { name: "Cap", category: "clothing" },
+
+      { name: "Novel - The Alchemist", category: "books" },
+      { name: "Notebook", category: "books" },
+      { name: "Story Book", category: "books" },
+      { name: "Programming Guide", category: "books" },
+      { name: "Science Encyclopedia", category: "books" },
+      { name: "Comics - Marvel", category: "books" }
+    ];
+
+    let currentFilter = 'all';
+
+    function filterProducts(category) {
+      currentFilter = category;
+      const searchVal = document.getElementById("search").value.toLowerCase();
+
+      let filtered = products.filter(p => {
+        const matchesCategory = category === 'all' || p.category === category;
+        const matchesSearch = p.name.toLowerCase().includes(searchVal);
+        return matchesCategory && matchesSearch;
+      });
+
+      display(filtered);
+    }
+
+    function display(list) {
+      const box = document.getElementById("products");
+      box.innerHTML = "";
+      list.forEach(item => {
+        box.innerHTML += `<div class='item'>${item.name} (${item.category})</div>`;
+      });
+    }
+
+    filterProducts('all');
+  </script>
+</body>
+</html>
+
+
+<!--  -->

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile Editor</title>
+  <link rel="stylesheet" href="day1.css" />
+  <link rel="script" href="day1.js" />
+</head>
+<body>
+  <section id="container">
+    <article id="profile">
+      <img id="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg7IX5HVFSpp8W4DP9A6hoYebMoRgckSzPag&s." alt="Profile" />
+      <h2 id="display-name">bilota</h2>
+      <h4 id="display-role">Designer</h4>
+      <p id="display-bio">Creative thinker and problem creator.</p>
+      <div id="tag-list"></div>
+      <div id="more-info">Additional details shown here...</div>
+    </article>
+
+    <aside id="editor">
+      <input id="input-name" placeholder="Name">
+      <input id="input-role" placeholder="Role">
+      <textarea id="input-bio" placeholder="Bio"></textarea>
+
+      <input id="input-tag" placeholder="Skill tag">
+      <div class="btns">
+        <button id="btn-add-tag">Add</button>
+        <button id="btn-remove-tag">Undo</button>
+      </div>
+
+      <div id="themes">
+        <button class="theme-btn" data-color="#e6e6fa">Lavender</button>
+        <button class="theme-btn" data-color="#c8facc">Mint</button>
+        <button class="theme-btn" data-color="#ffd1b3">Peach</button>
+      </div>
+
+      <input id="input-img" placeholder="Image URL">
+      <div class="btns">
+        <button id="btn-update-img">Update</button>
+        <button id="btn-toggle-info">Toggle Info</button>
+      </div>
+    </aside>
+  </section>
+
+  <script src="day1.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .card { 
+    border:1px solid #000; 
+    padding:10px; 
+    margin:10px auto; 
+    width:260px; 
+    display:none; 
+    border-radius:6px;
+  }
+  input, textarea { width:100%; margin:5px 0; }
+  button { padding:6px 10px; margin-top:5px; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<div id="c1" class="card" style="display:block;">
+  <h3>Company</h3>
+  <input id="name" placeholder="Company Name">
+  <input id="email" placeholder="Email">
+  <button onclick="next(1)">Next</button>
+</div>
+
+<div id="c2" class="card">
+  <h3>Image</h3>
+  <input id="img" placeholder="Image URL">
+  <button onclick="next(2)">Next</button>
+</div>
+
+<div id="c3" class="card">
+  <h3>Bio</h3>
+  <textarea id="bio" placeholder="Company Bio"></textarea>
+  <button onclick="next(3)">Next</button>
+</div>
+
+<div id="summary" class="card"></div>
+
+<script>
+function next(step){
+  const nameVal = document.getElementById("name").value.trim();
+  const emailVal = document.getElementById("email").value.trim();
+  const imgVal = document.getElementById("img").value.trim();
+  const bioVal = document.getElementById("bio").value.trim();
+
+  if(step === 1 && (!nameVal || !emailVal))
+    return alert("Fill details");
+
+  if(step === 2 && !imgVal)
+    return alert("Enter image URL");
+
+  if(step === 3 && !bioVal)
+    return alert("Enter bio");
+
+  document.getElementById("c" + step).style.display = "none";
+
+  if(step < 3){
+    document.getElementById("c" + (step + 1)).style.display = "block";
+  } else {
+    const summary = document.getElementById("summary");
+    summary.style.display = "block";
+
+    summary.innerHTML = `
+      <b>Name:</b> ${nameVal}<br>
+      <b>Email:</b> ${emailVal}<br>
+      <img src="${imgVal}" width="100%" style="margin:5px 0;"><br>
+      <b>Bio:</b> ${bioVal} <br><br>
+      <button onclick="finish()">Submit</button>
+    `;
+  }
+}
+
+function finish(){
+  document.getElementById("summary").style.display = "none";
+
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("img").value = "";
+  document.getElementById("bio").value = "";
+
+  document.getElementById("c1").style.display = "block";
+}
+</script>
+
+</body>
+</html>

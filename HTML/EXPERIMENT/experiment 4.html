@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spacebhraman — Landing Page</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --accent:#6ee7b7;
+      --dark:#0b1220;
+      --muted:#9aa5b1;
+    }
+
+    body {
+      background: #020617;
+      color: #e5f1f3;
+      font-family: Inter, system-ui, sans-serif;
+      overflow-x:hidden;
+    }
+
+    .stars {
+      position: fixed; inset: 0;
+      background: url("https://static.vecteezy.com/system/resources/previews/002/098/303/original/starry-night-sky-background-free-vector.jpg") center/cover no-repeat;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events:none;
+    }
+
+    @keyframes floatAstronaut {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes rocketFly {
+      0% { transform: translate(0,0); }
+      50% { transform: translate(40px,-40px); }
+      100% { transform: translate(0,0); }
+    }
+
+    .astronaut {
+      width: 150px;
+      position: absolute;
+      right: 10%;
+      bottom: 12%;
+      animation: floatAstronaut 3s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    .rocket {
+      width: 130px;
+      position: absolute;
+      left: 8%;
+      bottom: 5%;
+      animation: rocketFly 2.5s linear infinite;
+      z-index: 10;
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+      position:relative;
+      z-index:2;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <i class="fa-solid fa-galaxy me-2"></i>
+      <strong>Spacebhraman</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-6">
+        <h1 class="fw-bold display-5">Launch into the next frontier</h1>
+        <p class="lead mt-3">Crafted space experiences for studios, startups, and explorers.</p>
+
+        <div class="mt-4">
+          <a href="#features" class="btn btn-primary btn-lg me-2">Explore features</a>
+          <a href="#pricing" class="btn btn-outline-light btn-lg">Pricing</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mt-4 mt-lg-0 position-relative">
+        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=60"
+             class="img-fluid rounded-3 shadow">
+
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ71uB4XQEIMyxYfO9k5tOtjsN6y-JX3Zhphg&s"
+          class="astronaut">
+
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFMgpl1yrz_GWDllMfI7yZWNGd-Ki8SFnEsg&s"
+          class="rocket">
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<section id="features" class="py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Features</h2>
+    <p class="text-muted mb-4">Tools you need to build and share space experiences.</p>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card p-4 rounded-3 h-100">
+          <h5>Real-time Simulation</h5>
+          <p class="small text-muted">Adjust parameters and preview instantly.</p>
+          <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=800&q=60" class="img-fluid rounded mt-3">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature-card p-4 rounded-3 h-100">
+          <h5>Collaborative Workspaces</h5>
+          <p class="small text-muted">Invite your team and build missions together.</p>
+          <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=60" class="img-fluid rounded mt-3">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature-card p-4 rounded-3 h-100">
+          <h5>Deploy & Share</h5>
+          <p class="small text-muted">Share scenes with a link or embed.</p>
+          <img src="https://media.istockphoto.com/id/2207584650/photo/cloud-automation-and-management-systems-businessman-using-laptop-computer-for-cloud-computing.jpg?s=612x612&w=0&k=20&c=wOHBFDYlQTuG5Z3auQXNztQti-bVGsoQcjt3s7OA5bw=" class="img-fluid rounded mt-3">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="py-5">
+  <div class="container">
+    <h3 class="fw-bold mb-3">Gallery</h3>
+    <p class="text-muted mb-4">A glimpse into our space visuals and mission assets.</p>
+
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3">
+        <img class="w-100 rounded-3 shadow-sm"
+             src="https://www.shutterstock.com/image-photo/astronaut-spacewalk-cosmic-art-science-600nw-540015799.jpg">
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <img class="w-100 rounded-3 shadow-sm"
+             src="https://blog.gale.com/wp-content/uploads/2024/07/iStock-1693812103.jpg">
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <img class="w-100 rounded-3 shadow-sm"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFMgpl1yrz_GWDllMfI7yZWNGd-Ki8SFnEsg&s">
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <img class="w-100 rounded-3 shadow-sm"
+             src="https://media.istockphoto.com/id/597931174/photo/spacecraft-launch-into-space-elements-of-this-image-furnished-by.jpg?s=612x612&w=0&k=20&c=Pmks5zMzedeZohS2pYy3QpFeWkJ-Q8pFeO9-aPtvhe4=">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="py-5">
+  <div class="container">
+    <h3 class="fw-bold mb-3">Pricing</h3>
+    <p class="text-muted mb-4">Start free and grow with your team.</p>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card p-4 rounded-3">
+          <h5>Hobby</h5>
+          <p class="display-6 fw-bold">$0</p>
+          <p class="small text-muted">Basic features to get started.</p>
+          <button class="btn btn-outline-light btn-sm">Start free</button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature-card p-4 rounded-3">
+          <h5>Team</h5>
+          <p class="display-6 fw-bold">$49</p>
+          <p class="small text-muted">Collaboration + unlimited projects.</p>
+          <button class="btn btn-primary btn-sm">Get team</button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature-card p-4 rounded-3">
+          <h5>Enterprise</h5>
+          <p class="display-6 fw-bold">Contact</p>
+          <p class="small text-muted">Advanced features & support.</p>
+          <button class="btn btn-outline-light btn-sm">Contact sales</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-5">
+  <div class="container">
+    <h4>Stay in touch</h4>
+    <p class="text-muted">Get updates about launches.</p>
+
+    <form class="row g-2">
+      <div class="col-8">
+        <input class="form-control" placeholder="Your email">
+      </div>
+      <div class="col-4">
+        <button class="btn btn-primary w-100">Subscribe</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container text-center">
+    © <strong>Spacebhraman</strong> — Made with 🚀
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

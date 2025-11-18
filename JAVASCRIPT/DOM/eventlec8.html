@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Bubbling and Capturing Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    #outer {
+      background-color: rgb(140, 140, 140);
+      padding: 40px;
+      border: 3px solid rgb(12, 12, 12);
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    /* Inner box */
+    #inner {
+      background-color: rgb(236, 118, 225);
+      padding: 40px;
+      border: 3px solid rgb(104, 104, 104);
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    /* Info text */
+    h2 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Event Bubbling </h2>
+
+  <div id="outer">
+    Outer
+    <div id="inner">Inner</div>
+  </div>
+
+  <script>
+    document.getElementById('outer').addEventListener('click', () => {
+      console.log('Outer bubble');
+    });
+
+    document.getElementById('inner').addEventListener('click', () => {
+      console.log('Inner bubble');
+    });
+
+    document.getElementById('outer').addEventListener('click', () => {
+      console.log('Outer capture');
+    }, true);
+  </script>
+</body>
+</html>

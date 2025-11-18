@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .small-box {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    .big-box {
+      width: 400px;
+      height: 400px;
+      background-color: lightcoral;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    const body = document.querySelector('body');
+    const box = document.createElement('div');
+    const btn = document.createElement('button');
+
+    btn.textContent = 'Click Me';
+    box.classList.add('small-box');
+
+    body.appendChild(box);
+    body.appendChild(btn);
+
+    
+    btn.addEventListener('click', () => {
+      box.classList.toggle('big-box');
+      box.classList.toggle('small-box');
+
+     
+      if (box.classList.contains('big-box')) {
+        btn.textContent = 'Shrink';
+      } else {
+        btn.textContent = 'Enlarge';
+      }
+    });
+  </script>
+
+</body>
+</html>
